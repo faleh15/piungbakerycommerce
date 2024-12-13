@@ -25,21 +25,9 @@
     @include('home.product')
 
   <!-- end shop section -->
-
-
-
-
-
-
-
   <!-- contact section -->
-
   @include('home.contact')
-
   <!-- end contact section -->
-
-   
-
   <!-- info section -->
 @include('home.footer')
 </body>
