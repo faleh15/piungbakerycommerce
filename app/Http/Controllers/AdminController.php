@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Models\Category;
 
+use App\Models\Product;
+
 use Flasher\Toastr\Prime\ToastrInterface;
 
 class AdminController extends Controller
@@ -32,5 +34,52 @@ class AdminController extends Controller
         $data->delete();
         toastr()->timeout(7000)->closebutton()->Success('Category Deleted Succesfully');
         return redirect()->back();
+    }
+
+    public function edit_category($id)
+    {
+        $data = Category::find($id);
+        return view('admin.edit_category',compact('data'));
+    }
+
+    public function update_category(Request $request, $id)
+    {
+        $data = Category::find($id);
+        $data->category_name = $request->category;
+        $data->save();
+        toastr()->timeout(7000)->closebutton()->Success('Category Update Succesfully');
+        return redirect('/view_category');
+    }
+
+    public function add_product()
+    {
+        $category = Category::all();
+        return view('admin.add_product', compact('category'));
+    }
+
+    public function upload_product(Request $request)
+    {
+        $data = new Product;
+        $data->title = $request->title;
+        $data->description = $request->description;
+        $data->price = $request->price;
+        $data->quantity = $request->qty;
+        $data->category = $request->category;
+        $image = $request->image;
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $imagename = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('products'), $imagename);
+            $data->image = $imagename;
+        }
+        $data->save();
+        toastr()->timeout(7000)->closebutton()->Success('Product Added Succesfully');
+        return redirect()->back();
+    }
+
+    public function view_product()
+    {
+        $product = Product::paginate(5);
+        return view('admin.view_product', compact('product'));
     }
 }
