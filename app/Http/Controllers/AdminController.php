@@ -8,6 +8,8 @@ use App\Models\Category;
 
 use App\Models\Product;
 
+use App\Models\Order;
+
 use Flasher\Toastr\Prime\ToastrInterface;
 
 class AdminController extends Controller
@@ -125,6 +127,12 @@ class AdminController extends Controller
         $search = $request->search;
         $product = Product::where('title', 'LIKE', '%' . $search . '%')->orWhere ('category', 'LIKE', '%' . $search . '%')->paginate(3);
         return view('admin.view_product', compact('product'));
+    }
+
+    public function view_orders()
+    {
+        $data = Order::all();
+        return view('admin.order', compact('data'));
     }
 
 }
