@@ -13,16 +13,16 @@
           <a class="nav-link" href="{{url('/')}}">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="shop.html">Shop</a>
+          <a class="nav-link" href="{{ url('navbar_shop') }}">Shop</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="why.html">Why Us</a>
+          <a class="nav-link" href="{{ url('navbar_why') }}">Why Us</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="testimonial.html">Testimonial</a>
+          <a class="nav-link" href="{{ url('navbar_testimonial') }}">Testimonial</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="contact.html">Contact Us</a>
+          <a class="nav-link" href="{{ url('navbar_contact') }}">Contact Us</a>
         </li>
       </ul>
 

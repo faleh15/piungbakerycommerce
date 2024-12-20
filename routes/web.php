@@ -36,3 +36,7 @@ Route::get('update_product/{id}', [AdminController::class, 'update_product'])->m
 Route::post('edit_product/{id}', [AdminController::class, 'edit_product'])->middleware(['auth', 'admin']);
 Route::get('product_search', [AdminController::class, 'product_search'])->middleware(['auth', 'admin']);
 Route::get('product_details/{id}' ,[HomeController::class,'product_details']);
+Route::get('navbar_shop' ,[HomeController::class,'navbar_shop']);
+Route::get('navbar_why' ,[HomeController::class,'navbar_why']);
+Route::get('navbar_testimonial' ,[HomeController::class,'navbar_testimonial']);
+Route::get('navbar_contact' ,[HomeController::class,'navbar_contact']);

@@ -36,7 +36,7 @@
         </div>
         <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
         <ul class="list-unstyled">
-                <li><a href="index.html"> <i class="icon-home"></i>Home </a></li>
+                <li><a href="admin/dashboard"> <i class="icon-home"></i>Home </a></li>
                 <li class="active">
                   <a href="{{url('view_category')}}"> <i class="icon-grid"></i>Category </a>
                 </li>

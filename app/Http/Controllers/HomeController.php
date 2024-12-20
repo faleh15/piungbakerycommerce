@@ -31,4 +31,21 @@ class HomeController extends Controller
         return view('home.product_details', compact('data'));
     }
 
+    public function navbar_shop() {
+        $products = Product::all();
+        return view('home.navbar_shop', compact('products'));  // menyesuaikan dengan path folder
+    }
+
+    public function navbar_testimonial() {
+        return view('home.navbar_testimonial');  // menyesuaikan dengan path folder
+    }
+
+    public function navbar_why() {
+        return view('home.navbar_why');  // menyesuaikan dengan path folder
+    }
+
+    public function navbar_contact() {
+        return view('home.navbar_contact');  // menyesuaikan dengan path folder
+    }
+
 }
