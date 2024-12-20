@@ -35,8 +35,18 @@ Route::get('delete_product/{id}', [AdminController::class, 'delete_product'])->m
 Route::get('update_product/{id}', [AdminController::class, 'update_product'])->middleware(['auth', 'admin']);
 Route::post('edit_product/{id}', [AdminController::class, 'edit_product'])->middleware(['auth', 'admin']);
 Route::get('product_search', [AdminController::class, 'product_search'])->middleware(['auth', 'admin']);
+
 Route::get('product_details/{id}' ,[HomeController::class,'product_details']);
 Route::get('navbar_shop' ,[HomeController::class,'navbar_shop']);
 Route::get('navbar_why' ,[HomeController::class,'navbar_why']);
 Route::get('navbar_testimonial' ,[HomeController::class,'navbar_testimonial']);
 Route::get('navbar_contact' ,[HomeController::class,'navbar_contact']);
+
+Route::get('product_details/{id}' ,[HomeController::class,'product_details']);
+Route::get('add_cart/{id}' ,[HomeController::class,'add_cart'])->middleware(['auth', 'verified']);
+Route::get('mycart' ,[HomeController::class,'mycart'])->middleware(['auth', 'verified']);
+Route::get('delete_cart/{id}', [HomeController::class, 'delete_cart'])->middleware(['auth', 'verified']);
+Route::post('confirm_order', [HomeController::class, 'confirm_order'])->middleware(['auth', 'verified']);
+
+Route::get('view_orders', [AdminController::class, 'view_orders'])->middleware(['auth', 'admin']);
+
